@@ -16,6 +16,9 @@ monitor's scaling, and uses current Windows fonts and dialogs. Every departure f
 1995 behaviour is marked in the source and listed under
 [Changes from the 1995 program](#changes-from-the-1995-program).
 
+For the Mac, see [Labyrinth-mac](https://github.com/mpesce/Labyrinth-mac): the same
+program ported to macOS in Swift and Metal, for Apple silicon and Intel Macs.
+
 ## What is in the program
 
 The 1995 executable was linked from five parts. Each is handled differently here.

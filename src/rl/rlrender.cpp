@@ -989,13 +989,16 @@ static void renderViewport(RLViewportRec *v, int clientHeight)
     /* Faces are front facing when clockwise as seen by the viewer.  A field
      * with left > right (or bottom > top) mirrors the picture -- worlds
      * exported from 3D Studio used that to show right-handed models -- and
-     * with it the winding seen on the screen. */
+     * with it the winding seen on the screen.  The winding is set even when
+     * nothing is culled: two-sided lighting also goes by it, and with
+     * OpenGL's counterclockwise default it took the front faces for back
+     * faces and lit them from behind. */
     int mirrored = ((v->right - v->left) < 0.0f) != ((v->top - v->bottom) < 0.0f);
+    glFrontFace(mirrored ? GL_CCW : GL_CW);
     if (rlTwoSided()) {
         glDisable(GL_CULL_FACE);
     } else {
         glEnable(GL_CULL_FACE);
-        glFrontFace(mirrored ? GL_CCW : GL_CW);
         glCullFace(GL_BACK);
     }
     glShadeModel(flat ? GL_FLAT : GL_SMOOTH);
