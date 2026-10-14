@@ -1,0 +1,66 @@
+# A small Labyrinth VRML (the 1994-95 Labyrinth scripting language) world
+# exercising the world compiler: polygons with normals, colour, material,
+# a textured single face, lights, links and a camera.
+#
+# Reality Lab is left-handed (x right, y up, z into the screen) and polygons
+# face the viewer when their vertices run clockwise.
+
+World "Test" Begin
+
+Object "Cube" Open
+    Color 0.9 0.2 0.1
+    Material 0.5 10
+    Poly { Vertex -1  1 -1  Vertex  1  1 -1  Vertex  1 -1 -1  Vertex -1 -1 -1  Normal  0  0 -1 }
+    Poly { Vertex  1  1  1  Vertex -1  1  1  Vertex -1 -1  1  Vertex  1 -1  1  Normal  0  0  1 }
+    Poly { Vertex  1  1 -1  Vertex  1  1  1  Vertex  1 -1  1  Vertex  1 -1 -1  Normal  1  0  0 }
+    Poly { Vertex -1  1  1  Vertex -1  1 -1  Vertex -1 -1 -1  Vertex -1 -1  1  Normal -1  0  0 }
+    Poly { Vertex -1  1  1  Vertex  1  1  1  Vertex  1  1 -1  Vertex -1  1 -1  Normal  0  1  0 }
+    Poly { Vertex  1 -1  1  Vertex -1 -1  1  Vertex -1 -1 -1  Vertex  1 -1 -1  Normal  0 -1  0 }
+Close
+
+Object "Pyramid" Begin
+    Color 0.2 0.8 0.3
+    /* four triangles and a square base */
+    Poly Begin Vertex 0 1.5 0  Vertex  1 0 -1  Vertex -1 0 -1  Normal 0 0.55 -0.83 End
+    Poly Begin Vertex 0 1.5 0  Vertex  1 0  1  Vertex  1 0 -1  Normal 0.83 0.55 0 End
+    Poly Begin Vertex 0 1.5 0  Vertex -1 0  1  Vertex  1 0  1  Normal 0 0.55 0.83 End
+    Poly Begin Vertex 0 1.5 0  Vertex -1 0 -1  Vertex -1 0  1  Normal -0.83 0.55 0 End
+    Poly Begin Vertex -1 0 -1  Vertex 1 0 -1  Vertex 1 0 1  Vertex -1 0 1  Normal 0 -1 0 End
+End
+
+Object "Floor" {
+    Color 0.5 0.5 0.6
+    Poly { Vertex -8 -1 8  Vertex 8 -1 8  Vertex 8 -1 -8  Vertex -8 -1 -8  Normal 0 1 0 }
+}
+
+Object "Picture" Open
+    Texture "checker.gif" 0 0 Flat
+    Poly { Vertex -1 1 0  Vertex 1 1 0  Vertex 1 -1 0  Vertex -1 -1 0  Normal 0 0 -1 }
+Close
+
+Camera Begin
+    Position 0 1.5 -9
+    Orientation 0 -0.1 1  0 1 0
+    Field -0.5 0.5 0.5 -0.5
+End
+
+Scene "Main" Begin
+    Element { Object "Cube"  Position -2.5 0 0  Orientation 1 0 1  0 1 0
+              URL "test.wrl" }
+    Element { Object "Pyramid"  Position 2.5 -1 0  Orientation 0 0 1  0 1 0
+              URL "http://www.example.com/pyramid.html" }
+    Element { Object "Picture"  Position 0 0.5 2  Orientation 0 0 1  0 1 0 }
+    Element { Object "Floor"  Position 0 0 0  Orientation 0 0 1  0 1 0 }
+    Light {
+        Object "Sun" Directional Color 0.9 0.9 0.8
+        Position 0 10 0
+        Orientation 0.4 -1 0.6  0 0 1
+    }
+    Light {
+        Object "Lamp" Point Color 0.5 0.5 0.9
+        Position -4 3 -4
+        Orientation 0 0 1  0 1 0
+    }
+End
+
+End

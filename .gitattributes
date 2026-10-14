@@ -1,0 +1,6 @@
+* text=auto
+*.exe binary
+*.ico binary
+*.cur binary
+*.gif binary
+samples/vrml1gz.wrl binary

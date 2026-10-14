@@ -1,0 +1,6 @@
+#VRML V1.0 ascii
+Separator {
+  Material { diffuseColor 1 0.8 0.2 }
+  FontStyle { family SERIF size 2 }
+  AsciiText { string [ "Labyrinth", "lives again!" ] justification CENTER }
+}

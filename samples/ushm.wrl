@@ -1,0 +1,399 @@
+# This is the VRML file, using Labyrinth VRML version 1.4
+# It describes the scene layout for the virtual tour through the
+# US Holocaust Memorial Museum in Washington, D.C.
+# It shows us one room, which is the room from the Warsaw ghetto where
+# Daniel lived during the Second World War, before his family was sent
+# to Auschwitz.
+#
+# VRML File composed by Mark D. Pesce and Stephen Shapero
+# Models and layout by C. Scott Young
+# Copyright (c) 1994, Labyrinth Group and Husky Labs
+#
+# In Labyrinth VRML, the VRML documents have a form which opens with
+# a world definiton, continues through a series of object definitions, and
+# then into a scene definition, which arranges the defined objects into
+# a scene.  As of this version (1.4) there is no treatment for lights.
+#
+World "Daniel's Story" Begin # This opens the World Definition
+#
+# In Labyrinth VRML, object definitons have at least a shape characteristic.
+# Beyond this they can also have color or texture characteristics.
+# In order to speed loading across an Internet, we have chosen to load in
+# a "binary" representation of a polygon mesh.  This is the ".xof" file format.
+# The "Shapefile" keyword, given a URL, loads the polymesh in from the URL.
+# Objects are given names when they are defined, names which are referenced`
+# during scene definition.
+#
+Object "bed1" Open			# One of the beds in the scene
+	Shapefile "http://www.butterfly.net/lab/bed1.xof" # URL of polymesh
+	Color 1 0.90 0.66		# Define color as R G B components from 0.0 to 1.0
+	Material 0.55 0.5		# This is the specular (ks) and power (kd) 
+Close						# Must balance the Object Open statement
+
+Object "bed2" Open
+	Shapefile "http://www.butterfly.net/lab/bed2.xof"
+	Color .43 .21 .08
+	Material 0.85 0.5
+Close
+#
+# Note that here the polymesh is being gathered from another host,
+# Which demonstrates that a world can "assemble" itself from hosts all
+# over the Internet.
+#
+Object "bechsq-1" Open
+	Shapefile "http://www.butterfly.net/lab/bechsq-1.xof"
+	Color 1 .90 .66
+	Material 0.85 0.5
+Close
+
+Object "bechsq-2" Open
+	Shapefile "http://www.butterfly.net/lab/bechsq-2.xof"
+	Color .43 .25 .10
+	Material 0.85 0.5
+Close
+
+
+Object "lamp-p" Open # Lamp post
+	Shapefile "http://www.butterfly.net/lab/lamp-p.xof"
+	Color .35 .31 .43
+	Material 1 0.5
+Close
+
+Object "bedharo1" Open # Flat bed mattress
+	Shapefile "http://www.butterfly.net/lab/bedharo1.xof"
+	Color 1 .90 .66
+	Material 0.85 0.5
+Close
+
+Object "bedharo2" Open # Flat bed frame
+	Shapefile "http://www.butterfly.net/lab/bedharo2.xof"
+	Color .43 .21 .08
+	Material 0.85 0.5
+Close
+
+Object "lamp-l" Open # The light portion of the lamp
+	Shapefile "http://www.butterfly.net/lab/lamp-l.xof"
+	Color 1 .62 .25
+	Material 0.85 0.5
+Close
+
+Object "bednxt1" Open # This is the rounded bed
+	Shapefile "http://www.butterfly.net/lab/bednxt-1.xof"
+	Color 1 .90 .66
+	Material 0.85 0.5
+Close
+
+Object "bednxt2" Open # Mattress portion of the bed
+	Shapefile "http://www.butterfly.net/lab/bednxt-2.xof"
+	Color .43 .21 .08
+	Material 0.85 0.5
+Close
+
+Object "danlgtb" Open # This is the long table
+	Shapefile "http://www.butterfly.net/lab/danlgtb.xof"
+	Color .43 .21 .08
+	Material 0.85 0.5
+Close
+
+Object "dansbox" Open # The box beside the bed
+	Shapefile "http://www.butterfly.net/lab/dansbox.xof"
+	Color .05 .50 .08
+	Material 0.85 0.5
+Close
+
+Object "dansflr1" Open # The floor for the entire scene
+	Shapefile "http://www.butterfly.net/lab/dansflr1.xof"
+	Color .54 .50 .71
+	Material 0.85 0.5
+Close
+
+Object "dantabl" Open # This is the smaller table
+	Shapefile "http://www.butterfly.net/lab/dantabl.xof"
+	Color .41 .26 .17
+	Material 0.85 0.5
+Close
+
+Object "danwrbd1" Open # This is the mattress for the wire bed frame
+	Shapefile "http://www.butterfly.net/lab/danwrbd1.xof"
+	Color 1 .90 .66
+	Material 0.85 0.5
+Close
+
+Object "danwrbd2" Open # This is the wire bed frame
+	Shapefile "http://www.butterfly.net/lab/danwrbd2.xof"
+	Color .41 .26 .17
+	Material 0.85 0.5
+Close
+
+Object "sink" Open # This is the sink
+	Shapefile "http://www.butterfly.net/lab/sink.xof"
+	Color .60 .60 .60 
+	Material 0.85 0.5
+Close
+
+Object "stack" Open # This is the fireplace
+	Shapefile "http://www.butterfly.net/lab/stack.xof"
+	Color .70 .15 .15 
+	Material 0.40 0.20
+Close
+
+Object "page1" Open # This is one of the diary pages in the scene
+	Shapefile "http://www.butterfly.net/lab/page1.xof"
+	Color 1 1 1
+	Material 0.85 0.5
+Close
+
+Object "page2" Open # This is another diary page
+	Shapefile "http://www.butterfly.net/lab/page2.xof"
+	Color 1 1 1
+	Material 0.85 0.5
+Close
+
+Object "page3" Open # Another diary page
+	Shapefile "http://www.butterfly.net/lab/page3.xof"
+	Color 1 1 1
+	Material 0.85 0.5
+Close
+
+Object "page4" Open # And yet another
+	Shapefile "http://www.butterfly.net/lab/page4.xof"
+	Color 1 1 1
+	Material 0.85 0.5
+Close
+
+Object "danwal-n" Open # This is the inner wall surface
+	Shapefile "http://www.butterfly.net/lab/danwal-n.xof"
+	Color .47 .25 .20
+	Material 0.30 0.5
+Close
+
+Object "danwal-o" Open # This is the outer wall surface
+	Shapefile "http://www.butterfly.net/lab/danwal-o.xof"
+	Color .59 .59 .70
+	Material 0.25 0.5
+Close
+#
+# End of object definitions for this world
+# 
+# Labyrinth VRML defines a Camera construct which opens the view of
+# The scene to a particular position.  The Camera construct is required. 
+# It is made up of a position vector, two orientation vectors ( direction, up ),
+# and a field construct, which determines the field of view.
+#
+Camera Begin
+	Position 9.3872 1.98537 2.61755 # In front of the door to the room
+	Orientation -0.999985 0 -0.0053015 0 1 0 # Right side up
+	Field 0.5 -0.5 0.5 -0.5 # Normal field of view.
+End # Camera definition
+
+#
+# We now begin the scene definition.  A scene is an arrangement of objects.
+# This is analagous to the difference between a class definition and a class
+# instance in object-oriented programming; while a class definition may
+# be defined, until it is actually instanced, it doesn't really exist.
+# Just as in OOP, any object definition may be instanced an indefinite 
+# number of times within a scene definition.  Although all objects in this
+# scene are referenced only once, one could easily create a scene which used
+# many replications of the same object, say a library with lots of books
+# which look alike.
+#
+Scene "First" Begin
+
+# A scene MUST contain at least the following items; an object reference,
+# as defined above, a position vector and an orientation vector pair.
+# It MAY contain a URL "anchor", if desired.
+#
+	Element					# Indicates presence of scene element
+        {					
+        Object "bed1"		# References defined object bed1
+        Position 0 0 0		# Positions were setup by scene layout tool
+        Orientation 0 0 1 0 1 0 # As were orientations, in 3D Studio
+	}
+
+	Element
+        {
+        Object "bed2"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	# 
+	# Within Labyrith we can handle two basic types of anchors;
+	# Anchors into Web docments (generally .html), or anchors into
+	# Other Labyrinth worlds (.wrl files).  Labyrinth discriminates
+	# between .wrl files and everything else, handling the .wrl files
+	# as "teleports" into other worlds, and sending everything else to
+	# NCSA Mosaic for it to deal with.
+	#
+	# This is an example of a teleport link to Dr. Who's "Tardis"
+	#
+	Element
+        {
+        Object "bechsq-1"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+		URL "http://www.butterfly.net/lab/doctor.wrl"
+	}
+
+	Element
+        {
+        Object "bechsq-2"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+	
+	# 
+	# This is an example of a Web document link to the starting page 
+	# of "Daniel's Story"
+	#
+	Element
+        {
+        Object "lamp-p"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+        URL "http://www.butterfly.net/lab/daniel/sign.html"
+	}
+
+	Element
+        {
+        Object "lamp-l"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "bedharo1"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "bedharo2"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+        URL "http://www.butterfly.net/lab/daniel/bed.html"
+	}
+
+	Element
+        {
+        Object "bednxt1"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "bednxt2"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "dansbox" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "danlgtb"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "dansflr1"
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "danwrbd1" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "danwrbd2" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "sink" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+        URL "http://www.butterfly.net/lab/daniel/sink.html"
+	}
+
+	Element
+        {
+        Object "stack" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+        URL "http://www.butterfly.net/lab/daniel/fireplace.html"
+	}
+
+	Element
+        {
+        Object "dantabl" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "danwal-n" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+        {
+        Object "danwal-o" 
+        Position 0 0 0
+        Orientation 0 0 1 0 1 0
+	}
+
+	Element
+		{
+		Object "page1"
+		Position 0 0 0
+		Orientation 0 0 1 0 1 0
+		URL "http://www.butterfly.net/lab/daniel/entry2.html"
+	}
+
+	Element
+		{
+		Object "page2"
+		Position 0 0 0
+		Orientation 0 0 1 0 1 0
+	}
+
+	Element
+		{
+		Object "page3"
+		Position 0 0 0
+		Orientation 0 0 1 0 1 0
+		URL "http://www.butterfly.net/lab/daniel/entry3.html"
+	}
+
+	Element
+		{
+		Object "page4"
+		Position 0 0 0
+		Orientation 0 0 1 0 1 0
+	}
+
+End # of Scene definition - no elements outside of this
+
+End # of world definition - NOTHING outside of this
+
+

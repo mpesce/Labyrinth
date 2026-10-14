@@ -1,0 +1,15 @@
+# build trees (cmake --preset x64 / x86)
+/build/
+/build32/
+
+# the ready-to-run copy is a release asset; only its LAB.INI is kept here
+/dist/*
+!/dist/LAB.INI
+
+# decompilation workspace, reference sources and tool installs
+/work/
+/ref/
+/old/
+/tools/*
+!/tools/scripts/
+__pycache__/

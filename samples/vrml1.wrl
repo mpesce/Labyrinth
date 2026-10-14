@@ -1,0 +1,57 @@
+#VRML V1.0 ascii
+# A small VRML 1.0 world for testing Labyrinth's VRML support.
+Separator {
+    PerspectiveCamera {
+        position 0 1.5 9
+        orientation 1 0 0 -0.12
+        heightAngle 0.785398
+    }
+    DirectionalLight {
+        direction -0.5 -1 -0.7
+        intensity 0.9
+    }
+    Separator {
+        Translation { translation -3 0 0 }
+        Material { diffuseColor 0.9 0.2 0.1  specularColor 0.5 0.5 0.5  shininess 0.3 }
+        WWWAnchor {
+            name "vrml1.wrl"
+            description "The red cube"
+            Rotation { rotation 0 1 0 0.6 }
+            Cube { width 1.5 height 1.5 depth 1.5 }
+        }
+    }
+    Separator {
+        Translation { translation -1 0 0 }
+        Material { diffuseColor 0.2 0.4 1.0 }
+        Sphere { radius 0.9 }
+    }
+    Separator {
+        Translation { translation 1 0 0 }
+        Material { diffuseColor 1.0 0.8 0.1 }
+        Cone { bottomRadius 0.8 height 1.8 }
+    }
+    Separator {
+        Transform { translation 3 0 0  rotation 1 0 0 0.4  scaleFactor 1 1.2 1 }
+        Material { diffuseColor 0.2 0.9 0.4 }
+        Cylinder { radius 0.6 height 1.6 }
+    }
+    Separator {
+        # a floor made of four coloured squares
+        Material { diffuseColor [ 0.6 0.6 0.6, 0.3 0.3 0.4, 0.6 0.6 0.6, 0.3 0.3 0.4 ] }
+        MaterialBinding { value PER_FACE }
+        Coordinate3 {
+            point [ -6 -1 -6, 0 -1 -6, 6 -1 -6,
+                    -6 -1  0, 0 -1  0, 6 -1  0,
+                    -6 -1  6, 0 -1  6, 6 -1  6 ]
+        }
+        IndexedFaceSet {
+            coordIndex [ 0, 3, 4, 1, -1,  1, 4, 5, 2, -1,
+                         3, 6, 7, 4, -1,  4, 7, 8, 5, -1 ]
+        }
+    }
+    Separator {
+        Material { diffuseColor 1 1 1 }
+        Coordinate3 { point [ -6 2.5 -3, 6 2.5 -3, 6 2.5 -3.1 ] }
+        IndexedLineSet { coordIndex [ 0, 1, -1 ] }
+    }
+}

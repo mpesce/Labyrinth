@@ -1,0 +1,142 @@
+/*
+ * labyrinth.rc -- resources of Labyrinth 2.0a2, recreated from LABYRINTH.EXE.
+ *
+ * Change from the original: the menu items for the Internet Underground
+ * Music Archive and WaxWeb had the identifiers 40006 and 40007, which the
+ * program never handled, so they did nothing; they now use 407 and 406, the
+ * commands the code implements for those two sites.
+ *
+ * (new) Dither is greyed: it chose dithering for 8-bit palette displays,
+ * and in true colour there is nothing to dither.
+ *
+ * (new) HotSpots: the Cyberbanana, the first VRML world, heads the list of
+ * worlds; the Internet Underground Music Archive and WaxWeb are greyed,
+ * their 1995 worlds being gone; WebEarth 0.1 follows the Holocaust Museum
+ * tour, and Cybersamhain, the Tardis from Daniel's Story, Cybermall and
+ * C. Scott Young's Circle are added at the bottom. All the new worlds are
+ * at hyperreal.org.
+ *
+ * (new) Copyright: the About box and the version resource read "Copyright
+ * (c) 2026, Mark Pesce and Tony Parisi", where they read "Copyright (C) 1995
+ * The Community Company", and the company is Mark Pesce and Tony Parisi.
+ * The About box's "Reality Lab (C) 1995 RenderMorphics, Ltd." is struck, as
+ * Reality Lab is no longer used, and the box is 12 units shorter for it.
+ */
+#include <windows.h>
+#include "../app/resource.h"
+
+IDI_LABYRINTH   ICON    "labyrinth.ico"
+IDC_LABLINK     CURSOR  "link.cur"
+IDC_LABROTATE   CURSOR  "rotate.cur"
+
+1 RT_MANIFEST "labyrinth.manifest"
+
+IDM_LABYRINTH MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open URL...",            IDM_OPEN_URL
+        MENUITEM "Open &Local...",          IDM_OPEN_LOCAL
+        MENUITEM "&Save Camera...",         IDM_SAVE_CAMERA
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                   IDM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "Cu&t\tShift+Del",         IDM_CUT, GRAYED
+        MENUITEM "&Copy\tCtrl+Ins",         IDM_COPY, GRAYED
+        MENUITEM "&Paste\tShift+Ins",       IDM_PASTE, GRAYED
+        MENUITEM "&Delete\tDel",            IDM_DELETE, GRAYED
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Wireframe",              IDM_WIREFRAME
+        MENUITEM "&Flat",                   IDM_FLAT
+        MENUITEM "&Gouraud",                IDM_GOURAUD
+        MENUITEM "&Phong",                  IDM_PHONG
+        MENUITEM SEPARATOR
+        MENUITEM "Dither",                  IDM_DITHER, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Restore",                 IDM_RESTORE
+    END
+    POPUP "Hot&Spots"
+    BEGIN
+        MENUITEM "&Add HotSpot",            IDM_ADD_HOTSPOT, GRAYED
+        MENUITEM "&View HotSpots...",       IDM_VIEW_HOTSPOTS, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Cyberbanana",             IDM_BANANA
+        MENUITEM "Internet Underground Music Archive", IDM_IUMA, GRAYED
+        MENUITEM "HOTWIRED - Coming Soon!", IDM_HOTWIRED, GRAYED
+        MENUITEM "Virtual SOMA",            IDM_SOMA
+        MENUITEM "WaxWeb",                  IDM_WAXWEB, GRAYED
+        MENUITEM "U.S. Holocaust Museum Tour", IDM_USHM
+        MENUITEM "WebEarth 0.1",            IDM_WEARTH
+        MENUITEM "Cybersamhain",            IDM_SAMHAIN
+        MENUITEM "Tardis",                  IDM_TARDIS
+        MENUITEM "Cybermall",               IDM_MALL
+        MENUITEM "Circle by C. Scott Young", IDM_COVEN
+    END
+    POPUP "&Help", HELP
+    BEGIN
+        MENUITEM "&Navigation...",          IDM_HELP_NAVIGATION
+        MENUITEM "&Creating worlds...",     IDM_HELP_CREATING
+        MENUITEM "&Scripting...",           IDM_HELP_SCRIPTING
+        MENUITEM SEPARATOR
+        MENUITEM "&About Labyrinth..",      IDM_ABOUT
+    END
+END
+
+IDA_LABYRINTH ACCELERATORS
+BEGIN
+    VK_INSERT,  IDM_COPY,   VIRTKEY, CONTROL
+    VK_INSERT,  IDM_PASTE,  VIRTKEY, SHIFT
+    VK_DELETE,  IDM_CUT,    VIRTKEY, SHIFT
+END
+
+IDD_ABOUT DIALOGEX 6, 18, 160, 88
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About Labyrinth"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    CTEXT       "Labyrinth", IDC_ABOUT_NAME, 64, 8, 31, 8
+    CTEXT       "Version 2.0a2", IDC_ABOUT_VERSION, 56, 19, 46, 8
+    CTEXT       "Copyright (c) 2026, Mark Pesce and Tony Parisi", IDC_ABOUT_COPYRIGHT, 4, 54, 152, 8
+    DEFPUSHBUTTON "OK", IDOK, 60, 70, 40, 14
+    LTEXT       "By Tony Parisi and Mark Pesce and friends", -1, 9, 31, 141, 8
+    LTEXT       "QvLib by Paul Strauss and Gavin Bell", -1, 18, 42, 123, 8
+END
+
+IDD_PROMPT DIALOGEX 6, 18, 212, 76
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Labyrinth"
+FONT 9, "Segoe UI", 400, 0, 0x1
+BEGIN
+    LTEXT       "Enter a string:", IDC_PROMPT_TEXT, 11, 12, 176, 14
+    EDITTEXT    IDC_PROMPT_EDIT, 13, 28, 187, 14, ES_AUTOHSCROLL
+    DEFPUSHBUTTON "OK", IDOK, 58, 50, 40, 14
+    PUSHBUTTON  "Cancel", IDCANCEL, 114, 50, 40, 14
+END
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,2
+ PRODUCTVERSION 2,0,0,2
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Mark Pesce and Tony Parisi"
+            VALUE "FileDescription", "Labyrinth VRML WWW Browser"
+            VALUE "FileVersion", "2.0a2"
+            VALUE "LegalCopyright", "Copyright (c) 2026, Mark Pesce and Tony Parisi"
+            VALUE "ProductName", "Labyrinth"
+            VALUE "ProductVersion", "2.0a2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
