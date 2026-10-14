@@ -263,3 +263,9 @@ Labyrinth was written by Mark Pesce and Tony Parisi. The scene-language compiler
 grammar are Tony Parisi's. QvLib 1.0 is Silicon Graphics' VRML 1.0 parser; this copy
 comes from the geomview repository, whose headers carry geomview's LGPL notice. Reality
 Lab and libwww are not included; only Labyrinth's calls into them were reconstructed.
+
+The source is released under the MIT licence (see `LICENSE`), Copyright (c) 2026 Mark
+Pesce and Tony Parisi. QvLib keeps its LGPL notice, and the Bison-generated parser
+(`src/wc/wcparse.cpp`) and David Koblas's GIF reader (`src/app/gif.cpp`) keep their
+own notices. `LABYRINTH.EXE` is the 1995 original, kept as a historical record. The
+licence does not extend to the Reality Lab, libwww and C runtime code linked into it.
